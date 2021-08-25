@@ -20,7 +20,8 @@ public class Runner {
 		}
 		System.out.println(myHashMap);
 		System.out.println(myHashMap.get("paranoid"));
-
+		myHashMap.remove("into");
+		System.out.println(myHashMap);
 	}
 
 }

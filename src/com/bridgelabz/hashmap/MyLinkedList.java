@@ -58,10 +58,10 @@ public class MyLinkedList<K> {
 		return i;
 	}
 	
-	public void delete(int myNode) {
+	public void delete(K myNode) {
 		INode<K> tempNode = this.head;
 		while(tempNode != null) {
-			if((Integer)tempNode.getNext().getKey() == myNode) {
+			if(tempNode.getNext().getKey().equals((K)myNode)) {
 				INode<K> temp = tempNode.getNext().getNext();
 				tempNode.setNext(temp);
 				break;

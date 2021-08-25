@@ -22,6 +22,16 @@ public class MyHashMap<K, V> {
 			myMapNode.setValue(value);
 		}
 	}
+	
+	public void remove(K key) {
+		MyMapNode<K,V> myMapNode = (MyMapNode<K,V>) this.l1.search(key);
+		if(myMapNode != null) {
+			l1.delete(key);
+		}else {
+			System.out.println("No available nodes to remove of "+key);
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "MyHashNodes{"+ l1+"}";
