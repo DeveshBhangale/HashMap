@@ -70,87 +70,17 @@ public class MyLinkedList<K> {
 		}
 	}
 	
-	public void pop() {
-		INode<K> tempNode = this.head;
-		this.head = head.getNext();
-	}
-	
-	public void popLast() {
-		INode<K> tempNode = this.head;
-		while(!tempNode.getNext().equals(tail)) {
-			tempNode = tempNode.getNext();
-		}
-		tail = tempNode;
-		tempNode.setNext(null);	
-	}
-	
-	public INode<K> searchNode(K myNode){
-		int index = 0;
-		INode<K> tempNode = this.head;
-		while(tempNode != null) {
-			if((Integer)tempNode.getKey() == (Integer)myNode) {
-				//System.out.println((myNode + " key found at Index "+index));
-				return (INode<K>) tempNode.getKey();
+	public INode<K> search(K key){
+		INode<K> tempNode = head;
+		while(tempNode!=null) {
+			if(tempNode.getKey().equals((K)key)) {
+				return tempNode;
 			}
 			tempNode = tempNode.getNext();
-			index++;			
 		}
 		return null;
 	}
 	
-	public static void swap(int[] arr, int i, int j)
-	{
-	    int temp = arr[i];
-	    arr[i] = arr[j];
-	    arr[j] = temp;
-	}
-	
-	public static int split(int[] arr, int l, int h)
-	{
-		int pivot = arr[h]; 
-	    int i = (l - 1); 
-	    for(int j = l; j <= h - 1; j++)
-	    {
-	        if (arr[j] < pivot) 
-	        {
-	            i++; 
-	            swap(arr, i, j);
-	        }
-	    }
-	    swap(arr, i + 1, h);
-	    return (i + 1);
-	}
-	
-	public static void quickSort(int[] arr, int l, int h)
-	{
-	    if (l< h) 
-	    {
-	        int sp = split(arr, l, h);
-	        quickSort(arr, l, sp - 1);
-	        quickSort(arr, sp + 1, h);
-	    }
-	}
-	
-	public void sort() {
-		int arr[] = new int[20];
-		int i = 0;
-		INode<K> tempNode = this.head;
-		while(tempNode != null) {
-			arr[i] = (Integer)tempNode.getKey();
-			i++;
-			tempNode = tempNode.getNext();
-		}
-		quickSort(arr, 0, arr.length - 1);
-		StringBuffer str1 = new StringBuffer("My Nodes: ");
-		for(int j=0;j<20;j++) {
-			if(arr[j] != 0 && j!=19) {
-				str1.append(arr[j]+ "->");
-			}
-		} 
-		if(arr[19]!=0)
-			str1.append(arr[19]);
-		System.out.println(str1);
-	}
 	
 	public void print() {
 		INode<K> tempNode = head;
@@ -162,5 +92,23 @@ public class MyLinkedList<K> {
 			tempNode = tempNode.getNext();
 		}
 		System.out.println(str);
+	}
+
+	public void append(INode<K> myNode) {
+		if(tail == null) {
+			tail = myNode;
+		}
+		if(head == null) {
+			head = myNode;
+		}
+		else {
+			this.tail.setNext(myNode);
+			this.tail = myNode;
+		}
+	}
+	@Override
+	public String toString() {
+		return "MyLinkedListNodes{"+ head+"}";
+		
 	}
 }

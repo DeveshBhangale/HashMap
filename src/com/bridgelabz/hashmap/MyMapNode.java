@@ -42,7 +42,7 @@ public void setValue(V value) {
 @Override
 public String toString() {
 	StringBuilder str = new StringBuilder();
-	str.append("MyMapNode{k=").append(key).append(" V=").append(value).append("}");
+	str.append(" MyMapNode{ k=").append(key).append(" V=").append(value).append(" } ");
 	if(next!=null)
 		str.append("->").append(next);
 	

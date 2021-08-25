@@ -4,6 +4,7 @@ public class Runner {
 
 	public static void main(String[] args) {
 		
+		// Use Case 1s
 		String sentence = "To be or Not to be";
 		MyHashMap<String, Integer> myHashMap = new MyHashMap<>();
 		String[] words = sentence.toLowerCase().split(" ");
@@ -15,6 +16,8 @@ public class Runner {
 				value += 1;
 			myHashMap.add(word, value);
 		}
+		System.out.println(myHashMap);
+		System.out.println(myHashMap.get("to"));
 
 	}
 
